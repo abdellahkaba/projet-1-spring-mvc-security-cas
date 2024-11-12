@@ -11,6 +11,9 @@ import com.isi.mvc.repository.ProductRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 @RequiredArgsConstructor
 public class ProductService {
@@ -26,5 +29,13 @@ public class ProductService {
             throw new NameConflictException(BusinessErrorCodes.DUPLICATE_NAME.getDescription() + " : " + productDTO.getName());
         }
         return repository.save(mapper.toProduct(productDTO));
+    }
+
+
+    public List<ProductDTO> listProducts() {
+        return repository.findAll()
+                .stream()
+                .map(mapper::fromProduct)
+                .collect(Collectors.toList());
     }
 }

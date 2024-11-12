@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
@@ -40,5 +41,16 @@ public class ProductController {
         Product product = new Product();
         model.addAttribute("product", product);
         return "product-create.html" ;
+    }
+    @GetMapping("/products")
+    public String listProducts (Model model) {
+        List<ProductDTO> products = service.listProducts();
+        model.addAttribute("products", products);
+        return "products";
+    }
+
+    @GetMapping("/")
+    public String index(){
+        return "index";
     }
 }
