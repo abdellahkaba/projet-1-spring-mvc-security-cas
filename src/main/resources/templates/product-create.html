@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      layout:decorate="template"
+      xmlns:layout="http://www.nz.net.ultraq.thymeleaf/layout"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Form Product</title>
+    <link  rel="stylesheet" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+</head>
+<body>
+<div layout:fragment="content">
+    <div class="container mt-4">
+        <div class="card">
+            <div class="card-header text-center">
+                <h2>Ajouter un Produit</h2>
+            </div>
+            <div class="card-body">
+                <div class="row justify-content-center">
+                    <form method="post" th:action="@{product-create}" class="col-md-6" th:object="${product}">
+                        <div class="mb-3">
+                            <label for="ref" class="form-label">Reference</label>
+                            <input
+                                    type="text"
+                                    id="ref"
+                                    th:field="*{ref}"
+                                    class="form-control"
+                                    placeholder="Reference du product">
+                            <p th:if="${#fields.hasErrors('ref')}" class="text-danger" th:errors="*{ref}"></p>
+                        </div>
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Name</label>
+                            <input
+                                    type="text"
+                                    id="name"
+                                    th:field="*{name}"
+                                    class="form-control"
+                                    placeholder="Nom de produit">
+                            <p th:if="${#fields.hasErrors('name')}" class="text-danger" th:errors="*{name}"></p>
+                            <p th:if="${nameError}" class="text-danger" th:text="${nameError}"></p>
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary">Enregistrer</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

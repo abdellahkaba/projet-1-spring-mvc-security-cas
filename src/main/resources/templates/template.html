@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.nz.net.ultraq.thymeleaf/layout"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="webjars/bootstrap/5.3.3/css/bootstrap.min.css">
+    <script src="webjars/bootstrap/5.3.3/js/bootstrap.bundle.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-sm bg-primary navbar-light">
+    <div class="container-fluid">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link active text-white">Acceuil</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">Produits</a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" th:href="@{product-create}">Nouvel Produit</a></li>
+                    <li><a class="dropdown-item">Liste des Produits</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
+                    Abdoulaye Kaba
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<section layout:fragment="content"></section>
+</body>
+</html>
