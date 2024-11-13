@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.isi.mvc</groupId>
     <artifactId>spring-mvc-1</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>spring-mvc-1</name>
     <description>spring-mvc-1</description>
     <url/>

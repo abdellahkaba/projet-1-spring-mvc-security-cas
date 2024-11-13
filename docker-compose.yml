@@ -15,6 +15,16 @@ services:
       - spring-mvc
     restart: unless-stopped
 
+
+  mvc1:
+    container_name: mvc1
+    image: mvc1/mvc1:1.0.0
+    ports:
+      - 8083:8083
+    networks:
+      - spring-mvc
+    depends_on:
+      - postgres
 networks:
   spring-mvc:
     driver: bridge
@@ -22,3 +32,5 @@ networks:
 volumes:
   postgres:
     driver: local
+#  cas-server:
+#    driver: local
