@@ -16,9 +16,9 @@ services:
     restart: unless-stopped
 
 
-  mvc1:
-    container_name: mvc1
-    image: mvc1/mvc1:1.0.0
+  mvc:
+    container_name: mvc
+    image: mvc/mvc:1.0.0
     ports:
       - 8083:8083
     networks:
