@@ -16,6 +16,11 @@ spring:
 
 
 server:
+#  ssl:
+#    key-store: /app/thekeystore.jks  # Le chemin vers votre fichier .jks
+#    key-store-password: changeit
+#    key-alias: tomcat
+#    key-store-type: JKS  # Le type de keystore doit être JKS
   port: 8083
 
 

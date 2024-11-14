@@ -21,13 +21,7 @@ WORKDIR /app
 # Copier le fichier JAR depuis l'étape de build
 COPY --from=build /build/target/spring-mvc-1-*.jar /app/
 
-## Copier le fichier keystore .p12 dans le conteneur
-#COPY config/thekeystore.p12 /app/
-#
-## Convertir le fichier .p12 en .jks
-#RUN keytool -importkeystore -srckeystore /app/thekeystore.p12 -srcstorepass changeit -destkeystore /app/thekeystore.jks -storepass changeit
 
-# Exposer le port utilisé par l'application
 EXPOSE 8083
 
 # Définir les variables d'environnement

@@ -15,6 +15,25 @@ services:
       - spring-mvc
     restart: unless-stopped
 
+#  cas-server:
+#    image: apereo/cas:6.4.0
+#    container_name: cas-server
+#    ports:
+#      - "8443:8443"
+#    environment:
+#      - CAS_AUTHN_ACCEPT_USERS=user::password
+#      - CAS_AUTHN_ACCEPT_ENABLED=true
+#      - server.ssl.key-store=/etc/cas/thekeystore.jks
+#      - server.ssl.key-store-password=changeit
+#      - server.ssl.key-alias=tomcat
+#      - server.ssl.key-store-type=JKS
+#      - server.port=8443
+#    volumes:
+#      - ./config/thekeystore.p12:/etc/cas/thekeystore.jks:ro
+#    networks:
+#      - spring-mvc
+#    restart: unless-stopped
+
 
   mvc1:
     container_name: mvc1
