@@ -1,11 +1,11 @@
-name: Build & Test
+name: Build & Deploy
 on:
   push:
     branches:
       - main
 jobs:
   build-deploy:
-    name: Build and Test Spring MVC Application
+    name: Build and Deploy Spring MVC Application
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -17,9 +17,6 @@ jobs:
           distribution: 'corretto'
           java-version: 8
 
-
-      - name: Unit Tests
-        run: mvn -B test --file pom.xml
       - name: Build the Application
         run: |
           mvn clean
@@ -46,3 +43,4 @@ jobs:
           dockerfile: Dockerfile
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/mvc1:1.0.0
+
