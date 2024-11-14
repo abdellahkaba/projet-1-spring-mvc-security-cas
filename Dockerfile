@@ -25,9 +25,10 @@ COPY --from=build /build/target/spring-mvc-1-*.jar /app/
 EXPOSE 8083
 
 # Définir les variables d'environnement
-ENV DB_URL=jdbc:postgresql://postgres-spring-mvc-1:5432/springmvc1
-ENV ACTIVE_PROFILE=${PROFILE}
-ENV JAR_VERSION=${APP_VERSION}
+#ENV DB_URL=jdbc:postgresql://postgres-spring-mvc-1:5432/springmvc1
+#ENV ACTIVE_PROFILE=${PROFILE}
+#ENV JAR_VERSION=${APP_VERSION}
 
 # Lancer l'application avec les paramètres de profil et de base de données
-CMD java -jar -Dspring.profiles.active=${ACTIVE_PROFILE} -Dspring.datasource.url=${DB_URL} spring-mvc-1-${JAR_VERSION}.jar
+# CMD java -jar -Dspring.profiles.active=${ACTIVE_PROFILE} -Dspring.datasource.url=${DB_URL} spring-mvc-1-${JAR_VERSION}.jar
+CMD java -jar -Dspring.profiles.active=${PROFILE} -Dspring.datasource.url=jdbc:postgresql://postgres:5432/springmvc1 spring-mvc-1-${APP_VERSION}.jar
